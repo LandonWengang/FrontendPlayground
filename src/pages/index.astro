@@ -1,0 +1,32 @@
+---
+import ProjectList from '../components/ProjectList.jsx';
+import { profile, projects, notes } from '../content.js';
+import '../styles.css';
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={profile.intro} />
+    <title>{profile.name} · 个人主页</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">Frontend Playground / Astro</p>
+        <h1>{profile.name}</h1>
+        <p>{profile.intro}</p>
+        <a href={profile.github}>GitHub</a>
+      </header>
+      <ProjectList client:load projects={projects} />
+      <section>
+        <h2>学习日志</h2>
+        <ol>
+          {notes.map((note) => <li>{note.text}</li>)}
+        </ol>
+      </section>
+    </main>
+  </body>
+</html>

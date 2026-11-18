@@ -6,6 +6,9 @@
     "node": ">=22.23.4"
   },
   "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
     "dev:react": "vite react",
     "build:react": "vite build react"
   },
@@ -15,7 +18,9 @@
     "react-dom": "^19.3.1"
   },
   "devDependencies": {
+    "@astrojs/react": "^7.1.9",
     "@vitejs/plugin-react": "^6.3.0",
+    "astro": "^7.4.12",
     "vite": "^8.3.8"
   }
 }

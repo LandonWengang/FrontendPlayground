@@ -21,3 +21,21 @@ npm run dev:react
 动手练习：在 `src/content.js` 新增一条项目记录，再试着给筛选器加一个「重置」按钮。
 
 运行 `npm run build:react` 可生成 `react/dist/`，验证 React 练习页能独立构建。
+
+### 第二阶段：Astro
+
+```sh
+npm run dev
+```
+
+`src/pages/index.astro` 对应首页 `/`。对照 React 版看看同一份数据如何在构建时生成 HTML：简介和学习日志是静态内容，项目列表也预先渲染，只有筛选区通过 `client:load` 在浏览器中启用 React 交互。
+
+动手练习：在浏览器中禁用 JavaScript，确认仍能读到完整项目列表；重新启用后，再试试在 `src/pages/` 添加一个 `about.astro` 页面。
+
+## 持续维护与发布
+
+- 在 `src/content.js` 更新简介、添加项目和日志。为每条记录使用不同且稳定的 `id`，两个版本会共用这些内容。
+- 在 `src/styles.css` 调整两个版本共用的样式。
+- 运行 `npm run build`，再用 `npm run preview` 在本地预览；将根目录下的 `dist/` 发布到静态托管服务即可。
+
+开发和预览服务器仅用于本地。构建工具间接依赖的 `picomatch` 存在尚未修复的 [ReDoS 告警](https://github.com/advisories/GHSA-fc5q-39xc-vjpf)；站点不处理用户提供的 glob 模式，发布时只需上传静态产物。

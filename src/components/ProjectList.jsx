@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 
 export default function ProjectList({ projects }) {
+  const filterId = useId();
   const [framework, setFramework] = useState('');
   const frameworks = [...new Set(projects.map((project) => project.framework))];
   const visibleProjects = framework
@@ -10,13 +11,13 @@ export default function ProjectList({ projects }) {
   return (
     <section>
       <h2>项目与练习</h2>
-      <label>
-        按框架筛选{' '}
-        <select value={framework} onChange={(event) => setFramework(event.target.value)}>
+      <div>
+        <label htmlFor={filterId}>按框架筛选</label>{' '}
+        <select id={filterId} value={framework} onChange={(event) => setFramework(event.target.value)}>
           <option value="">全部</option>
           {frameworks.map((name) => <option key={name}>{name}</option>)}
         </select>
-      </label>
+      </div>
       {visibleProjects.length === 0 ? (
         <p>暂无项目。</p>
       ) : (
