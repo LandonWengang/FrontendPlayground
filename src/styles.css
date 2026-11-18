@@ -1,0 +1,59 @@
+:root {
+  font-family: system-ui, sans-serif;
+  line-height: 1.65;
+  color: #17243b;
+  background: #f5f7fb;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  box-sizing: border-box;
+  max-width: 52rem;
+  margin-inline: auto;
+  padding: clamp(1rem, 5vw, 3rem);
+}
+
+header {
+  padding-block: 1.5rem;
+  border-bottom: 1px solid #ced8e8;
+}
+
+h1 {
+  margin-block: 0;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  line-height: 1.1;
+}
+
+a, .eyebrow {
+  color: #254f9c;
+}
+
+.eyebrow {
+  font-weight: 700;
+}
+
+select {
+  font: inherit;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.projects li {
+  padding: 1rem;
+  background: white;
+  border: 1px solid #ced8e8;
+  border-radius: 0.75rem;
+}
+
+.projects li > * {
+  margin-block: 0 0.5rem;
+}
